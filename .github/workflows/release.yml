@@ -13,7 +13,7 @@ jobs:
       matrix:
         include:
           - target: x86_64-unknown-linux-gnu
-            os: ubuntu-latest
+            os: ubuntu-22.04
             binary: ocds-mcp
             asset: ocds-mcp-linux-x86_64
           - target: aarch64-apple-darwin
@@ -41,15 +41,15 @@ jobs:
         if: matrix.os != 'windows-latest'
         shell: bash
         run: |
-          cp target/${{ matrix.target }}/release/${{ matrix.binary }} ${{ matrix.asset }}
-          tar czf ${{ matrix.asset }}.tar.gz ${{ matrix.asset }}
+          cp target/${{ matrix.target }}/release/${{ matrix.binary }} ocds-mcp
+          tar czf ${{ matrix.asset }}.tar.gz ocds-mcp
 
       - name: Package (Windows)
         if: matrix.os == 'windows-latest'
         shell: bash
         run: |
-          cp target/${{ matrix.target }}/release/${{ matrix.binary }} ${{ matrix.asset }}.exe
-          7z a ${{ matrix.asset }}.zip ${{ matrix.asset }}.exe
+          cp target/${{ matrix.target }}/release/${{ matrix.binary }} ocds-mcp.exe
+          7z a ${{ matrix.asset }}.zip ocds-mcp.exe
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

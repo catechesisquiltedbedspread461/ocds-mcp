@@ -1,6 +1,6 @@
 {
   "name": "@qune-tech/ocds-mcp",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "MCP server for German public procurement data (OCDS). Semantic search, tender matching, and company profile management.",
   "license": "MIT",
   "repository": {

